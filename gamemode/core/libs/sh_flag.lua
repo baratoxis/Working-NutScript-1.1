@@ -6,7 +6,6 @@ function nut.flag.add(flag, desc, callback)
 	-- Add the flag to a list, storing the description and callback (if there is one).
 	nut.flag.list[flag] = {desc = desc, callback = callback}
 end
-nut.flag.Add = nut.flag.add
 
 if (SERVER) then
 	-- Called to apply flags when a player has spawned.
@@ -29,7 +28,6 @@ if (SERVER) then
 			end
 		end
 	end
-	nut.flag.OnSpawn = nut.flag.onSpawn
 end
 
 do
@@ -42,7 +40,6 @@ do
 		function character:setFlags(flags)
 			self:setData("f", flags)
 		end
-		character.SetFlags = character.setFlags
 
 		-- Add a flag to the flag string.
 		function character:giveFlags(flags)
@@ -70,7 +67,6 @@ do
 				self:setFlags(self:getFlags()..addedFlags)
 			end
 		end
-		character.GiveFlags = character.giveFlags
 
 		-- Remove the flags from the flag string.
 		function character:takeFlags(flags)
@@ -95,14 +91,12 @@ do
 				self:setFlags(newFlags)
 			end
 		end
-		character.TakeFlags = character.takeFlags
 	end
 
 	-- Return the flag string.
 	function character:getFlags()
 		return self:getData("f", "")
 	end
-	character.GetFlags = character.getFlags
 
 	-- Check if the flag string contains the flags specified.
 	function character:hasFlags(flags)
@@ -114,7 +108,6 @@ do
 
 		return false
 	end
-	character.HasFlags = character.hasFlags
 end
 
 do

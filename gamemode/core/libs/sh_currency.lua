@@ -8,7 +8,6 @@ function nut.currency.set(symbol, singular, plural)
 	nut.currency.singular = singular
 	nut.currency.plural = plural
 end
-nut.currency.Set = nut.currency.set
 
 function nut.currency.get(amount)
 	if (amount == 1) then
@@ -17,7 +16,6 @@ function nut.currency.get(amount)
 		return nut.currency.symbol..amount.." "..nut.currency.plural
 	end
 end
-nut.currency.Get = nut.currency.get
 
 function nut.currency.spawn(pos, amount, angle)
 	if (!pos) then
@@ -36,7 +34,6 @@ function nut.currency.spawn(pos, amount, angle)
 
 	return money
 end
-nut.currency.Spawn = nut.currency.spawn
 
 function GM:OnPickupMoney(client, moneyEntity)
 	if (moneyEntity and moneyEntity:IsValid()) then
@@ -57,7 +54,6 @@ do
 
 		return self:getMoney() >= amount
 	end
-	character.HasMoney = character.hasMoney
 
 	function character:giveMoney(amount, kek)
 		if (!kek) then
@@ -68,7 +64,6 @@ do
 
 		return true
 	end
-	character.GiveMoney = character.giveMoney
 
 	function character:takeMoney(amount)
 		nut.log.add(self:getPlayer(), "money", -amount)
@@ -77,5 +72,4 @@ do
 
 		return true
 	end
-	character.TakeMoney = character.takeMoney
 end

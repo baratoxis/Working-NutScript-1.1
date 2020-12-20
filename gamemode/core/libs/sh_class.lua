@@ -59,7 +59,6 @@ function nut.class.loadFromDir(directory)
 		CLASS = nil
 	end
 end
-nut.class.LoadFromDir = nut.class.loadFromDir
 
 -- Determines if a player is allowed to join a specific class.
 function nut.class.canBe(client, class)
@@ -91,12 +90,10 @@ function nut.class.canBe(client, class)
 	-- See if the class allows the player to join it.
 	return info:onCanBe(client)
 end
-nut.class.CanBe = nut.class.canBe
 
 function nut.class.get(identifier)
 	return nut.class.list[identifier]
 end
-nut.class.Get = nut.class.get
 
 function nut.class.getPlayers(class)
 	local players = {}
@@ -110,7 +107,6 @@ function nut.class.getPlayers(class)
 
 	return players
 end
-nut.class.GetPlayers = nut.class.getPlayers
 
 function charMeta:joinClass(class)
 	if (!class) then
@@ -131,7 +127,6 @@ function charMeta:joinClass(class)
 		return false
 	end
 end
-nut.class.JoinClass = nut.class.joinClass
 
 function charMeta:kickClass()
 	local client = self:getPlayer()
@@ -151,7 +146,6 @@ function charMeta:kickClass()
 	
 	hook.Run("OnPlayerJoinClass", client, goClass)
 end
-charMeta.KickClass = charMeta.kickClass
 
 function GM:OnPlayerJoinClass(client, class, oldClass)
 	local info = nut.class.list[class]

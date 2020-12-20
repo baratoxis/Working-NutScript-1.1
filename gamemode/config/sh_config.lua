@@ -39,7 +39,7 @@ nut.config.add("chatRange", 280, "The maximum distance a person's IC chat messag
 })
 nut.config.add("chatColor", Color(255, 239, 150), "The default color for IC chat.", nil, {category = "chat"})
 nut.config.add("chatListenColor", Color(168, 240, 170), "The color for IC chat if you are looking at the speaker.", nil, {category = "chat"})
-nut.config.add("oocDelay", 10, "The delay before a player can use OOC chat again in seconds.", nil, {
+nut.config.add("oocDelay", 0, "The delay before a player can use OOC chat again in seconds.", nil, {
 	data = {min = 0, max = 10000},
 	category = "chat"
 })
@@ -54,11 +54,11 @@ nut.config.add("spawnTime", 5, "The time it takes to respawn.", nil, {
 	data = {min = 0, max = 10000},
 	category = "characters"
 })
-nut.config.add("invW", 6, "How many slots in a row there is in a default inventory.", nil, {
+nut.config.add("invW", 10, "How many slots in a row there is in a default inventory.", nil, {
 	data = {min = 0, max = 20},
 	category = "characters"
 })
-nut.config.add("invH", 4, "How many slots in a column there is in a default inventory.", nil, {
+nut.config.add("invH", 6, "How many slots in a column there is in a default inventory.", nil, {
 	data = {min = 0, max = 20},
 	category = "characters"
 })
@@ -91,26 +91,26 @@ nut.config.add("walkRatio", 0.5, "How fast one goes when holding ALT.", nil, {
 	data = {min = 0, max = 1},
 	category = "characters"
 })
-nut.config.add("punchStamina", 10, "How much stamina punches use up.", nil, {
+nut.config.add("punchStamina", 5, "How much stamina punches use up.", nil, {
 	data = {min = 0, max = 100},
 	category = "characters"
 })
-nut.config.add("music", "music/hl2_song2.mp3", "The default music played in the character menu.", nil, {
+nut.config.add("music", "", "The default music played in the character menu.", nil, {
 	category = "appearance"
 })
-nut.config.add("logo", "https://static.miraheze.org/nutscriptwiki/2/26/Nutscript.png", "The icon shown on the character menu. Max size is 86x86", nil, {
+nut.config.add("logo", "", "The icon shown on the character menu. Max size is 86x86", nil, {
 	category = "appearance"
 })
-nut.config.add("logoURL", "http://nutscript.net/", "The URL opened when the icon is clicked.", nil, {
+nut.config.add("logoURL", "", "The URL opened when the icon is clicked.", nil, {
 	category = "appearance"
 })
 nut.config.add("vignette", true, "Whether or not the vignette is shown.", nil, {
 	category = "appearance"
 })
-nut.config.add("sbRecog", false, "Whether or not recognition is used in the scoreboard.", nil, {
+nut.config.add("sbRecog", true, "Whether or not recognition is used in the scoreboard.", nil, {
 	category = "characters"
 })
-nut.config.add("defMoney", 0, "The amount of money that players start with.", nil, {
+nut.config.add("defMoney", 150, "The amount of money that players start with.", nil, {
 	category = "characters",
 	data = {min = 0, max = 10000}
 })

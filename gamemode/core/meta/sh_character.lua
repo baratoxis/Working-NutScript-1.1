@@ -18,7 +18,6 @@ end
 function CHAR:getID()
 	return self.id
 end
-CHAR.GetID = CHAR.getID
 
 if (SERVER) then
 	-- Saves the character to the database and calls the callback if provided.
@@ -52,7 +51,6 @@ if (SERVER) then
 			end, nil, "_id = "..self:getID())
 		end
 	end
-	CHAR.Save = CHAR.save
 
 	-- Sends character information to the receiver.
 	function CHAR:sync(receiver)
@@ -85,7 +83,6 @@ if (SERVER) then
 			netstream.Start(receiver, "charInfo", data, self:getID(), self.player)
 		end
 	end
-	CHAR.Sync = CHAR.sync
 
 	-- Sets up the "appearance" related inforomation for the character.
 	function CHAR:setup(noNetworking)
@@ -124,7 +121,6 @@ if (SERVER) then
 			self.firstTimeLoaded = true
 		end
 	end
-	CHAR.Setup = CHAR.setup
 
 	-- Forces the player to choose a character.
 	function CHAR:kick()
@@ -146,7 +142,6 @@ if (SERVER) then
 			end
 		end
 	end
-	CHAR.Kick = CHAR.kick
 
 	-- Prevents the use of this character permanently or for a certain amount of time.
 	function CHAR:ban(time)
@@ -161,7 +156,6 @@ if (SERVER) then
 		self:setData("banned", time or true)
 		self:kick()
 	end
-	CHAR.Ban = CHAR.ban
 end
 
 -- Returns which player owns this character.
@@ -182,7 +176,6 @@ function CHAR:getPlayer()
 		end
 	end
 end
-CHAR.GetPlayer = CHAR.getPlayer
 
 -- Sets up a new character variable.
 function nut.char.registerVar(key, data)
@@ -255,7 +248,6 @@ function nut.char.registerVar(key, data)
 	-- Add the variable default to the character object.
 	CHAR.vars[key] = data.default
 end
-nut.char.RegisterVar = nut.char.registerVar
 
 -- Allows access to the character metatable using nut.meta.character
 nut.meta.character = CHAR

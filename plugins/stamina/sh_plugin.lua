@@ -4,7 +4,7 @@ PLUGIN.desc = "Adds a stamina system to limit running."
 
 if (SERVER) then
 	function PLUGIN:PostPlayerLoadout(client)
-		client:setLocalVar("stm", 100)
+		client:setLocalVar("stm", 200)
 
 		local uniqueID = "nutStam"..client:SteamID()
 		local offset = 0
@@ -38,7 +38,7 @@ if (SERVER) then
 					end
 
 					local current = client:getLocalVar("stm", 0)
-					local value = math.Clamp(current + offset, 0, 100)
+					local value = math.Clamp(current + offset, 0, 200)
 
 					if (current != value) then
 						client:setLocalVar("stm", value)
@@ -67,7 +67,7 @@ if (SERVER) then
 
 	function playerMeta:restoreStamina(amount)
 		local current = self:getLocalVar("stm", 0)
-		local value = math.Clamp(current + amount, 0, 100)
+		local value = math.Clamp(current + amount, 0, 200)
 
 		self:setLocalVar("stm", value)
 	end

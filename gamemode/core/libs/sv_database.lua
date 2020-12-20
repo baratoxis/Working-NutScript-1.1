@@ -197,7 +197,6 @@ function nut.db.connect(callback)
 		ErrorNoHalt("[NutScript] '"..(nut.db.module or "nil").."' is not a valid data storage method!\n")
 	end
 end
-nut.db.Connect = nut.db.connect
 
 local MYSQL_CREATE_TABLES = [[
 CREATE TABLE IF NOT EXISTS `nut_characters` (
@@ -309,7 +308,6 @@ function nut.db.wipeTables()
 
 	nut.db.loadTables()
 end
-nut.db.WipeTables = nut.db.wipeTables
 
 local resetCalled = 0
 concommand.Add("nut_recreatedb", function(client, cmd, arguments)
@@ -344,7 +342,6 @@ function nut.db.loadTables()
 
 	hook.Run("OnLoadTables")
 end
-nut.db.LoadTables = nut.db.loadTables
 
 function nut.db.convertDataType(value)
 	if (type(value) == "string") then
@@ -355,7 +352,6 @@ function nut.db.convertDataType(value)
 
 	return value
 end
-nut.db.ConvertDataTypes = nut.db.convertDataTypes
 
 function nut.db.insertTable(value, callback, dbTable)
 	local query = "INSERT INTO "..("nut_"..(dbTable or "characters")).." ("
@@ -370,7 +366,6 @@ function nut.db.insertTable(value, callback, dbTable)
 	query = query..table.concat(keys, ", ")..") VALUES ("..table.concat(values, ", ")..")"
 	nut.db.query(query, callback)
 end
-nut.db.InsertTable = nut.db.insertTable
 
 function nut.db.updateTable(value, callback, dbTable, condition)
 	local query = "UPDATE "..("nut_"..(dbTable or "characters")).." SET "
@@ -383,4 +378,3 @@ function nut.db.updateTable(value, callback, dbTable, condition)
 	query = query..table.concat(changes, ", ")..(condition and " WHERE "..condition or "")
 	nut.db.query(query, callback)
 end
-nut.db.UpdateTable = nut.db.updateTable

@@ -16,7 +16,6 @@ do
 				return data
 			end
 		end
-		playerMeta.GetNutData = playerMeta.getNutData
 	else
 		function playerMeta:getNutData(key, default)
 			local data = nut.localData and nut.localData[key]
@@ -27,7 +26,6 @@ do
 				return data
 			end
 		end
-		playerMeta.GetNutData = playerMeta.getNutData
 
 		netstream.Hook("nutDataSync", function(data, playTime)
 			nut.localData = data
@@ -58,7 +56,6 @@ do
 
 		return false
 	end
-	playerMeta.HasWhitelist = playerMeta.hasWhitelist
 
 	function playerMeta:getItems()
 		local char = self:getChar()
@@ -71,7 +68,6 @@ do
 			end
 		end
 	end
-	playerMeta.GetItems = playerMeta.getItems
 
 	function playerMeta:getClass()
 		local char = self:getChar()
@@ -80,7 +76,6 @@ do
 			return char:getClass()
 		end
 	end
-	playerMeta.GetClass = playerMeta.getClass
 
 	function playerMeta:getClassData()
 		local char = self:getChar()
@@ -95,5 +90,4 @@ do
 			end
 		end
 	end
-	playerMeta.GetClassData = playerMeta.getClassData
 end

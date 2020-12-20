@@ -80,7 +80,6 @@ function nut.plugin.load(uniqueID, path, isSingleFile, variable)
 		PLUGIN:OnLoaded()
 	end
 end
-nut.plugin.Load = nut.plugin.load
 
 function nut.plugin.getHook(pluginName, hookName)
 	local h = HOOKS_CACHE[hookName]
@@ -95,7 +94,6 @@ function nut.plugin.getHook(pluginName, hookName)
 
 	return
 end
-nut.plugin.GetHook = nut.plugin.getHook
 
 function nut.plugin.loadEntities(path)
 	local files, folders
@@ -175,7 +173,6 @@ function nut.plugin.loadEntities(path)
 	-- Include effects.
 	HandleEntityInclusion("effects", "EFFECT", effects and effects.Register, nil, true)
 end
-nut.plugin.LoadEntities = nut.plugin.loadEntities
 
 function nut.plugin.initialize()
 	nut.plugin.load("schema", engine.ActiveGamemode().."/schema")
@@ -192,7 +189,6 @@ function nut.plugin.initialize()
 		end)
 	end
 end
-nut.plugin.Initialize = nut.plugin.initialize
 
 function nut.plugin.loadFromDir(directory)
 	local files, folders = file.Find(directory.."/*", "LUA")
@@ -205,7 +201,6 @@ function nut.plugin.loadFromDir(directory)
 		nut.plugin.load(string.StripExtension(v), directory.."/"..v, true)
 	end
 end
-nut.plugin.LoadFromDir = nut.plugin.loadFromDir
 
 function nut.plugin.setUnloaded(uniqueID, state, noSave)
 	local plugin = nut.plugin.list[uniqueID]
@@ -248,7 +243,6 @@ function nut.plugin.setUnloaded(uniqueID, state, noSave)
 
 	return true
 end
-nut.plugin.SetUnloaded = nut.plugin.setUnloaded
 
 if (SERVER) then
 	nut.plugin.repos = nut.plugin.repos or {}
@@ -325,7 +319,6 @@ if (SERVER) then
 			MsgN("\t* ERROR: "..fault)
 		end)
 	end
-	nut.plugin.LoadRepo = nut.plugin.loadRepo
 
 	function nut.plugin.download(repo, plugin, callback)
 		local plugins = nut.plugin.repos[repo]
@@ -390,12 +383,10 @@ if (SERVER) then
 			return false, "cloud_no_repo"
 		end
 	end
-	nut.plugin.Download = nut.plugin.download
 
 	function nut.plugin.loadFromLocal(repo, plugin)
 
 	end
-	nut.plugin.LoadFromLocal = nut.plugin.loadFromLocal
 
 	concommand.Add("nut_cloudloadrepo", function(client, _, arguments)
 		local url = arguments[1]
